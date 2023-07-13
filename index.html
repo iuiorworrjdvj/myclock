@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mynew.css">
+    <script src="mynew.js"></script>
+<style>.container{
+    display: flex;
+    background: rgba(235,0,255,0.11); backdrop-filter: blur(100px);
+}
+h1{
+    color: white;
+    text-decoration: underline;
+
+}
+
+#hour{
+    
+    margin: 5px;
+}
+#second{
+    margin: 5px;
+}
+#minutes{
+    margin: 5px;
+}
+div{
+    width: 500px;
+    height: 100px;
+    color: white;
+    font-size: 50px;
+}
+
+.newcontainer{
+    display: flex;
+   
+}
+.newcontainer div{
+    font-size: 40px;
+}
+body{
+    background: linear-gradient(45deg,#08001f,#30197d);
+}
+.container::before{
+    content:'';
+    width:80px;
+    height: 80px;
+    background: #f41b75;
+    border-radius: 5px;
+    position: absolute;
+    top:-15px;
+    left: -10px;
+    z-index: -1;backdrop-filter: blur(10px);
+    border-radius: 100px;}
+.container::after {
+    content: '';
+    width: 80px;
+    height: 80px;
+    background: #419aff;
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    right: -10px;
+    top: -10px;
+    backdrop-filter: blur(20px);
+    border-radius: 100px;
+  }
+  </style>
+  <script>let hour,second,minutes; hour=0; second=0; minutes=0;
+
+    function clock(){    
+        second++;
+        if(second===60){
+            minutes++;
+            second=0;}
+            if(minutes===60)
+            {
+                hour++;
+                minutes=0;
+            }
+            if(hour===24){
+                hour=0;  
+            }
+            document.getElementById("hour").textContent=hour;
+            document.getElementById("second").textContent=second;
+            document.getElementById("minutes").textContent=minutes;
+            
+    }
+    setInterval(clock,1000);
+    </script>
+    
+
+</head>
+<body>
+    <center>
+        <h1>Time clock</h1>
+        
+        <div class="container"><div id="hour"></div> :<div id="minutes"></div> :<div id="second"></div></div>
+        <div class="newcontainer"><div>Hour</div><div>Minutes</div><div>Seconds</div></div>
+    </center>
+
+</body>
+</html> 
